@@ -130,3 +130,10 @@ document.addEventListener("DOMContentLoaded", function () {
     startGame()
     playAgain.addEventListener("click", restartGame);
 })
+
+startButton.addEventListener('click', function () {
+    startGame();
+    startButton.style.display = "none";
+    randomApplePosition(document.querySelectorAll(".grid div"), true);
+    interval = setInterval(checkMoveOutcome, timeBetweenMovements)
+});
