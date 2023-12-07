@@ -7,12 +7,14 @@ const startButton = document.querySelector(".startButton")
 
 /* Variables*/
 let width = 10;
-let direction = 1
+let cobraPosition = 0
+let applePosition = 0
 let cobraArray = [2, 1, 0]
+let direction = 1
 let score = 0
 let timeBetweenMovements = 0
 let speed = 0.9
-
+let interval = 0
 /*Variables*/
 
 
@@ -71,8 +73,6 @@ const lookForHits = (boxes) => {
         return false
     }
 }
-
-let applePosition = 0
 
 const eatApple = (boxes, tail) => {
     if (boxes[cobraArray[0]].classList.contains("apple")) {
