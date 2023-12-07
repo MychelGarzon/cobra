@@ -30,5 +30,32 @@ const startGame = () => {
     cobraPosition = 0
     cobraArray.forEach(index => boxes[index].classList.add("cobra"))
 
+}
 
+const checkMoveOutcome = ()=> {
+    let boxes = document.querySelectorAll(".grid div")
+    
+    if (lookForHits(boxes)) {
+        overlay.style.display = "flex"
+        return clearInterval(interval)
+        
+    } else {
+        moveCobra(boxes)
+    
+    }
+}
+
+const moveCobra=(boxes)=> {
+ 
+    let tail = cobraArray.pop()
+    
+    boxes[tail].classList.remove("cobra")
+
+    cobraArray.unshift(cobraArray[0] + direction)
+    
+ 
+    eatApple(boxes, tail)
+    
+    boxes[cobraArray[0]].classList.add("cobra")
+    
 }
