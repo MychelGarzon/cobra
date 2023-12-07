@@ -88,33 +88,45 @@ const eatApple = (boxes, tail) => {
     }
 }
 
-const randomApplePosition = (boxes)=> {
-    
+const randomApplePosition = (boxes) => {
+
     do {
         applePosition = Math.floor(Math.random() * boxes.length)
     } while (boxes[applePosition].classList.contains("cobra"))
-    
+
     boxes[applePosition].classList.add("apple")
-   
+
 }
- 
+
 const left = document.querySelector(".left")
 const bottom = document.querySelector(".bottom")
 const right = document.querySelector(".right")
 const up = document.querySelector(".top")
- 
- 
-const keyBoardControl=(element)=> {
- 
-    
- 
+
+
+const keyBoardControl = (element) => {
     if (element.keyCode === 39) {
-        direction = 1  
+        direction = 1
     } else if (element.keyCode === 38) {
         direction = -width
     } else if (element.keyCode === 37) {
-        direction = -1  
+        direction = -1
     } else if (element.keyCode === 40) {
-        direction = +width  
+        direction = +width
     }
 }
+
+const restartGame = () => {
+    grid.innerHTML = ""
+    buildBoard()
+    score = 0;
+    startGame()
+    overlay.style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("keyup", keyBoardControl)
+    buildBoard()
+    startGame()
+    playAgain.addEventListener("click", restartGame);
+})
