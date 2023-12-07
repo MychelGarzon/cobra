@@ -72,6 +72,8 @@ const lookForHits = (boxes) => {
     }
 }
 
+let applePosition = 0
+
 const eatApple = (boxes, tail) => {
     if (boxes[cobraArray[0]].classList.contains("apple")) {
         boxes[cobraArray[0]].classList.remove("apple")
@@ -83,5 +85,36 @@ const eatApple = (boxes, tail) => {
         clearInterval(interval)
         timeBetweenMovements = timeBetweenMovements * speed
         interval = setInterval(checkMoveOutcome, timeBetweenMovements)
+    }
+}
+
+const randomApplePosition = (boxes)=> {
+    
+    do {
+        applePosition = Math.floor(Math.random() * boxes.length)
+    } while (boxes[applePosition].classList.contains("cobra"))
+    
+    boxes[applePosition].classList.add("apple")
+   
+}
+ 
+const left = document.querySelector(".left")
+const bottom = document.querySelector(".bottom")
+const right = document.querySelector(".right")
+const up = document.querySelector(".top")
+ 
+ 
+const keyBoardControl=(element)=> {
+ 
+    
+ 
+    if (element.keyCode === 39) {
+        direction = 1  
+    } else if (element.keyCode === 38) {
+        direction = -width
+    } else if (element.keyCode === 37) {
+        direction = -1  
+    } else if (element.keyCode === 40) {
+        direction = +width  
     }
 }
