@@ -1,1 +1,34 @@
-<!-- This is the HTML file -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Cobra</h1>
+    <h2>Your score</h2>
+
+    <div class="scoreDisplay"></div>
+    <!-- We have a div of class scoreDisplay that will display our scores. -->
+
+    <div class="grid"></div>
+    <!-- There's a div of class grid that will house the game (this is going to be a 10 by 10 grid) -->
+    <div class="button_directions">
+      <button class="top">top</button>
+      <button class="bottom">bottom</button>
+      <button class="left">left</button>
+      <button class="right">right</button>
+    </div>
+    <!-- button_directions are for triggering the key from the keyboard -->
+    <div class="startButton">
+      <button>Start Game</button>
+    </div>
+    <!-- Start the Game -->
+    <div class="overlay">
+      <button class="playAgain">play Again</button>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>
