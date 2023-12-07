@@ -1,1 +1,55 @@
 /*This is Style*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 3rem;
+  background: url('./assets/background.jpg') no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+.grid {
+  width: 200px;
+  height: 200px;
+  border: 1px solid grey;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid div {
+  width: 20px;
+  height: 20px;
+  border: 1px black solid;
+  box-sizing: border-box;
+}
+.cobra {
+  background: green;
+  border: 1px black solid;
+}
+.apple {
+  background-color: red;
+  border-radius: 50%;
+}
+.overlay {
+  background-color: rgba(69, 216, 1, 0.9);
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  color: antiquewhite;
+}
+
+.button_directions {
+  display: none;
+}
+
+.startButton {
+  padding: 2rem;
+}
