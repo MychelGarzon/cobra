@@ -9,6 +9,10 @@ const startButton = document.querySelector(".startButton")
 let width = 10;
 let direction = 1
 let cobraArray = [2, 1, 0]
+let score = 0
+let timeBetweenMovements = 0
+let speed = 0.9
+
 /*Variables*/
 
 
@@ -32,30 +36,52 @@ const startGame = () => {
 
 }
 
-const checkMoveOutcome = ()=> {
+const checkMoveOutcome = () => {
     let boxes = document.querySelectorAll(".grid div")
-    
+
     if (lookForHits(boxes)) {
         overlay.style.display = "flex"
         return clearInterval(interval)
-        
+
     } else {
         moveCobra(boxes)
-    
+
     }
 }
 
-const moveCobra=(boxes)=> {
- 
+const moveCobra = (boxes) => {
     let tail = cobraArray.pop()
-    
     boxes[tail].classList.remove("cobra")
-
     cobraArray.unshift(cobraArray[0] + direction)
-    
- 
     eatApple(boxes, tail)
-    
     boxes[cobraArray[0]].classList.add("cobra")
-    
+
+}
+
+const lookForHits = (boxes) => {
+    if (
+        (cobraArray[0] + width >= (width * width) && direction === width) ||
+        (cobraArray[0] % width === width - 1 && direction === 1) ||
+        (cobraArray[0] % width === 0 && direction === -1) ||
+        (cobraArray[0] - width <= 0 && direction === -width) ||
+        boxes[cobraArray[0] + direction].classList.contains("cobra")
+    ) {
+        return true
+    } else {
+        return false
+    }
+}
+
+const eatApple = (boxes, tail) => {
+    if (boxes[cobraArray[0]].classList.contains("apple")) {
+        boxes[cobraArray[0]].classList.remove("apple")
+        boxes[tail].classList.add("cobra")
+        cobraArray.push(tail)
+        randomApplePosition(boxes)
+        score += 1
+        scoreDisplay.textContent = score
+        clearInterval(interval)
+        timeBetweenMovements = timeBetweenMovements * speed
+        interval = setInterval(checkMoveOutcome, timeBetweenMovements)
+    }
 }
