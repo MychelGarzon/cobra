@@ -5,10 +5,17 @@
 }
 
 body {
-  padding: 3rem;
-  background: url('./assets/background.jpg') no-repeat;
-  background-size: cover;
+  background: url('./assets/background.jpg');
+  background-size: 100%;
+  background-attachment: fixed;
+  justify-content: center;
   text-align: center;
+  padding: 10rem;
+}
+h1,
+h2,
+.scoreDisplay {
+  color: grey;
 }
 .grid {
   width: 200px;
@@ -17,12 +24,16 @@ body {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
+  align-content: center;
 }
 .grid div {
   width: 20px;
   height: 20px;
-  border: 1px black solid;
+  border: 1px grey solid;
   box-sizing: border-box;
+  text-align: center;
+  align-content: center;
 }
 .cobra {
   background: green;
@@ -33,7 +44,12 @@ body {
   border-radius: 50%;
 }
 .overlay {
-  background-color: rgba(69, 216, 1, 0.9);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(23, 23, 31, 1) 55%,
+    rgba(0, 212, 255, 1) 100%
+  );
   position: fixed;
   left: 0;
   top: 0;
@@ -43,13 +59,18 @@ body {
   justify-content: center;
   align-items: center;
   text-align: justify;
-  color: antiquewhite;
 }
 
 .button_directions {
   display: none;
 }
 
-.startButton {
-  padding: 2rem;
+button {
+  display: inline-block;
+  margin: 2rem;
+  width: 4rem;
+  height: 4rem;
+  border: solid;
+  border-radius: 50%;
+  color: gray;
 }

@@ -65,7 +65,7 @@ const lookForHits = (boxes) => {
         (cobraArray[0] + width >= (width * width) && direction === width) ||
         (cobraArray[0] % width === width - 1 && direction === 1) ||
         (cobraArray[0] % width === 0 && direction === -1) ||
-        (cobraArray[0] - width <= 0 && direction === -width) ||
+        (cobraArray[0] < width && direction === -width) ||
         boxes[cobraArray[0] + direction].classList.contains("cobra")
     ) {
         return true
@@ -89,7 +89,6 @@ const eatApple = (boxes, tail) => {
 }
 
 const randomApplePosition = (boxes) => {
-
     do {
         applePosition = Math.floor(Math.random() * boxes.length)
     } while (boxes[applePosition].classList.contains("cobra"))
@@ -121,6 +120,7 @@ const restartGame = () => {
     buildBoard()
     score = 0;
     startGame()
+    startButton.style.display = "block";
     overlay.style.display = "none";
 }
 
